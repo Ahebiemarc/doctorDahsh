@@ -32,14 +32,18 @@ function App() {
   return loading ? (
     <Loader />
   ) : (
-    <DefaultLayout>
-      <Routes>
+    <Routes>
+      {/* Routes SANS DefaultLayout */}
+      <Route index  element={<SignIn />} />
+      <Route path="/auth/signup" element={<SignUp />} />
+
+      {/* Routes AVEC DefaultLayout */}
+      <Route element={<DefaultLayout />}>
         <Route
-        index
+          path="/statistiques"
           element={
             <>
-            
-              <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="eCommerce Dashboard | TailAdmin" />
               <ECommerce />
             </>
           }
@@ -48,7 +52,7 @@ function App() {
           path="/calendar"
           element={
             <>
-              <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Calendar | TailAdmin" />
               <Calendar />
             </>
           }
@@ -57,7 +61,7 @@ function App() {
           path="/profile"
           element={
             <>
-              <PageTitle title="Profile | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Profile | TailAdmin" />
               <Profile />
             </>
           }
@@ -66,7 +70,7 @@ function App() {
           path="/forms/form-elements"
           element={
             <>
-              <PageTitle title="Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Form Elements | TailAdmin" />
               <FormElements />
             </>
           }
@@ -75,7 +79,7 @@ function App() {
           path="/forms/form-layout"
           element={
             <>
-              <PageTitle title="Form Layout | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Form Layout | TailAdmin" />
               <FormLayout />
             </>
           }
@@ -84,7 +88,7 @@ function App() {
           path="/tables"
           element={
             <>
-              <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Tables | TailAdmin" />
               <Tables />
             </>
           }
@@ -93,7 +97,7 @@ function App() {
           path="/settings"
           element={
             <>
-              <PageTitle title="Settings | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Settings | TailAdmin" />
               <Settings />
             </>
           }
@@ -102,7 +106,7 @@ function App() {
           path="/chart"
           element={
             <>
-              <PageTitle title="Basic Chart | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Basic Chart | TailAdmin" />
               <Chart />
             </>
           }
@@ -111,7 +115,7 @@ function App() {
           path="/ui/alerts"
           element={
             <>
-              <PageTitle title="Alerts | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Alerts | TailAdmin" />
               <Alerts />
             </>
           }
@@ -120,31 +124,13 @@ function App() {
           path="/ui/buttons"
           element={
             <>
-              <PageTitle title="Buttons | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title="Buttons | TailAdmin" />
               <Buttons />
             </>
           }
         />
-        <Route
-          path="/auth/signin"
-          element={
-            <>
-              <PageTitle title="Signin | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <SignIn />
-            </>
-          }
-        />
-        <Route
-          path="/auth/signup"
-          element={
-            <>
-              <PageTitle title="Signup | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <SignUp />
-            </>
-          }
-        />
-      </Routes>
-    </DefaultLayout>
+      </Route>
+    </Routes>
   );
 }
 
